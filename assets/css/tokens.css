@@ -1,0 +1,185 @@
+/* ==========================================================================
+   MediFlow Pharmacy ERP - Design Tokens
+   Single source of truth for colour, type, spacing, radius, shadow, motion.
+   Light theme is the default; dark theme overrides live in [data-theme="dark"].
+   ========================================================================== */
+
+:root {
+  /* ---------- Brand scale (healthcare teal / emerald) ---------- */
+  --teal-50:  #f0fdfa;
+  --teal-100: #ccfbf1;
+  --teal-200: #99f6e4;
+  --teal-300: #5eead4;
+  --teal-400: #2dd4bf;
+  --teal-500: #14b8a6;
+  --teal-600: #0d9488;
+  --teal-700: #0f766e;
+  --teal-800: #115e59;
+  --teal-900: #134e4a;
+
+  /* ---------- Neutral scale (slate) ---------- */
+  --slate-50:  #f8fafc;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-300: #cbd5e1;
+  --slate-400: #94a3b8;
+  --slate-500: #64748b;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1e293b;
+  --slate-900: #0f172a;
+  --slate-950: #020617;
+
+  /* ---------- Semantic hues ---------- */
+  --green-50:#ecfdf5; --green-100:#d1fae5; --green-500:#10b981; --green-600:#059669; --green-700:#047857;
+  --amber-50:#fffbeb; --amber-100:#fef3c7; --amber-500:#f59e0b; --amber-600:#d97706; --amber-700:#b45309;
+  --red-50:#fef2f2;   --red-100:#fee2e2;   --red-500:#ef4444;   --red-600:#dc2626;   --red-700:#b91c1c;
+  --blue-50:#eff6ff;  --blue-100:#dbeafe;  --blue-500:#3b82f6;  --blue-600:#2563eb;  --blue-700:#1d4ed8;
+  --violet-50:#f5f3ff; --violet-100:#ede9fe; --violet-500:#8b5cf6; --violet-600:#7c3aed;
+
+  /* ---------- Surfaces and text (light) ---------- */
+  --bg-app:        var(--slate-50);
+  --bg-surface:    #ffffff;
+  --bg-surface-2:  var(--slate-50);
+  --bg-surface-3:  var(--slate-100);
+  --bg-inset:      var(--slate-100);
+  --bg-hover:      rgba(15, 23, 42, .04);
+  --bg-active:     rgba(15, 23, 42, .07);
+  --bg-sidebar:    #ffffff;
+  --bg-topbar:     rgba(255, 255, 255, .86);
+  --bg-scrim:      rgba(15, 23, 42, .44);
+
+  --text-strong:   var(--slate-900);
+  --text-base:     var(--slate-700);
+  --text-muted:    var(--slate-500);
+  --text-subtle:   var(--slate-400);
+  --text-invert:   #ffffff;
+
+  --border:        var(--slate-200);
+  --border-strong: var(--slate-300);
+  --border-focus:  var(--teal-600);
+
+  /* ---------- Accent roles ---------- */
+  --primary:        var(--teal-700);
+  --primary-hover:  var(--teal-800);
+  --primary-active: var(--teal-900);
+  --primary-soft:   var(--teal-50);
+  --primary-soft-2: var(--teal-100);
+  --primary-text:   var(--teal-800);
+  --primary-ring:   rgba(13, 148, 136, .28);
+
+  --success: var(--green-600);  --success-soft: var(--green-50);  --success-text: var(--green-700);
+  --warning: var(--amber-600);  --warning-soft: var(--amber-50);  --warning-text: var(--amber-700);
+  --danger:  var(--red-600);    --danger-soft:  var(--red-50);    --danger-text:  var(--red-700);
+  --info:    var(--blue-600);   --info-soft:    var(--blue-50);   --info-text:    var(--blue-700);
+
+  /* ---------- Chart series ---------- */
+  --chart-1: #0d9488;
+  --chart-2: #2563eb;
+  --chart-3: #f59e0b;
+  --chart-4: #8b5cf6;
+  --chart-5: #ec4899;
+  --chart-6: #14b8a6;
+  --chart-grid: var(--slate-200);
+
+  /* ---------- Typography ---------- */
+  --font-sans: "Inter", "Inter var", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+
+  --fs-page:   24px;
+  --fs-section:16px;
+  --fs-body:   14px;
+  --fs-sm:     13px;
+  --fs-xs:     12px;
+  --fs-2xs:    11px;
+  --fs-display:30px;
+
+  --lh-tight: 1.25;
+  --lh-base:  1.5;
+  --lh-loose: 1.65;
+
+  --fw-regular: 400;
+  --fw-medium:  500;
+  --fw-semibold:600;
+  --fw-bold:    700;
+
+  /* ---------- Spacing (4px base) ---------- */
+  --sp-0:0; --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:20px;
+  --sp-6:24px; --sp-7:28px; --sp-8:32px; --sp-10:40px; --sp-12:48px; --sp-16:64px;
+
+  /* ---------- Radius ---------- */
+  --r-xs:4px; --r-sm:6px; --r-md:8px; --r-lg:12px; --r-xl:16px; --r-2xl:20px; --r-full:999px;
+
+  /* ---------- Shadows ---------- */
+  --sh-xs: 0 1px 2px rgba(15,23,42,.05);
+  --sh-sm: 0 1px 3px rgba(15,23,42,.07), 0 1px 2px rgba(15,23,42,.04);
+  --sh-md: 0 4px 10px -2px rgba(15,23,42,.09), 0 2px 4px -2px rgba(15,23,42,.05);
+  --sh-lg: 0 12px 26px -6px rgba(15,23,42,.14), 0 6px 10px -6px rgba(15,23,42,.07);
+  --sh-xl: 0 24px 48px -12px rgba(15,23,42,.24);
+  --sh-ring: 0 0 0 3px var(--primary-ring);
+
+  /* ---------- Motion ---------- */
+  --t-fast: 150ms cubic-bezier(.4,0,.2,1);
+  --t-base: 180ms cubic-bezier(.4,0,.2,1);
+  --t-slow: 240ms cubic-bezier(.4,0,.2,1);
+
+  /* ---------- Layout metrics ---------- */
+  --sidebar-w: 256px;
+  --sidebar-w-collapsed: 68px;
+  --topbar-h: 60px;
+  --page-max: 1600px;
+
+  /* ---------- Z-index ---------- */
+  --z-sidebar: 40;
+  --z-topbar: 30;
+  --z-drawer: 70;
+  --z-modal: 80;
+  --z-toast: 90;
+  --z-lock: 95;
+}
+
+/* ============================ DARK THEME ============================ */
+[data-theme="dark"] {
+  --bg-app:       var(--slate-950);
+  --bg-surface:   #0b1220;
+  --bg-surface-2: #0f1a2b;
+  --bg-surface-3: #16233a;
+  --bg-inset:     #0a101c;
+  --bg-hover:     rgba(226, 232, 240, .06);
+  --bg-active:    rgba(226, 232, 240, .1);
+  --bg-sidebar:   #0b1220;
+  --bg-topbar:    rgba(11, 18, 32, .85);
+  --bg-scrim:     rgba(2, 6, 23, .66);
+
+  --text-strong: #f1f5f9;
+  --text-base:   #cbd5e1;
+  --text-muted:  #94a3b8;
+  --text-subtle: #64748b;
+
+  --border:        #1e2b43;
+  --border-strong: #2b3b58;
+  --border-focus:  var(--teal-400);
+
+  --primary:        var(--teal-500);
+  --primary-hover:  var(--teal-400);
+  --primary-active: var(--teal-300);
+  --primary-soft:   rgba(20, 184, 166, .12);
+  --primary-soft-2: rgba(20, 184, 166, .2);
+  --primary-text:   var(--teal-300);
+  --primary-ring:   rgba(45, 212, 191, .3);
+
+  --success: var(--green-500); --success-soft: rgba(16,185,129,.13); --success-text: #6ee7b7;
+  --warning: var(--amber-500); --warning-soft: rgba(245,158,11,.14); --warning-text: #fcd34d;
+  --danger:  var(--red-500);   --danger-soft:  rgba(239,68,68,.14);  --danger-text:  #fca5a5;
+  --info:    var(--blue-500);  --info-soft:    rgba(59,130,246,.14); --info-text:    #93c5fd;
+
+  --chart-1:#2dd4bf; --chart-2:#60a5fa; --chart-3:#fbbf24;
+  --chart-4:#a78bfa; --chart-5:#f472b6; --chart-6:#34d399;
+  --chart-grid:#1e2b43;
+
+  --sh-xs: 0 1px 2px rgba(0,0,0,.4);
+  --sh-sm: 0 1px 3px rgba(0,0,0,.45);
+  --sh-md: 0 4px 12px -2px rgba(0,0,0,.5);
+  --sh-lg: 0 14px 30px -8px rgba(0,0,0,.6);
+  --sh-xl: 0 26px 52px -12px rgba(0,0,0,.7);
+}

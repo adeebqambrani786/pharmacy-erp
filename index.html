@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="MediFlow Pharmacy ERP — Smart Pharmacy Management &amp; Inventory Control System">
+<meta name="color-scheme" content="light dark">
+<title>MediFlow Pharmacy ERP</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f766e'/%3E%3Cpath d='M16 8v16M8 16h16' stroke='white' stroke-width='3.5' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/layout.css">
+<link rel="stylesheet" href="assets/css/print.css" media="all">
+<link rel="stylesheet" href="assets/css/theme.css">
+</head>
+<body>
+
+<!-- Storage availability warning (shown by store.js when LocalStorage is unusable) -->
+<div id="storage-warning" class="storage-warning" hidden>
+  <strong>Browser storage unavailable.</strong>
+  <span>MediFlow is running in memory only — data will be lost when this tab closes. Enable cookies/site data for this origin to persist your work.</span>
+</div>
+
+<!-- Boot splash -->
+<div id="boot-view" class="boot-view">
+  <div class="boot-logo" aria-hidden="true">
+    <svg viewBox="0 0 48 48" width="48" height="48"><rect width="48" height="48" rx="12" fill="currentColor"/><path d="M24 12v24M12 24h24" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg>
+  </div>
+  <p class="boot-text">Preparing MediFlow…</p>
+</div>
+
+<!-- ============================= LOGIN ============================= -->
+<div id="login-view" class="auth-view login-layout" hidden>
+  <section class="auth-brand">
+    <div class="auth-brand-inner">
+      <div class="brand-mark">
+        <svg viewBox="0 0 48 48" width="36" height="36" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#fff" fill-opacity=".14"/><path d="M24 13v22M13 24h22" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg>
+        <div>
+          <h1>MediFlow</h1>
+          <p>Pharmacy ERP</p>
+        </div>
+      </div>
+      <h2 class="auth-headline">Smart Pharmacy Management &amp; Inventory Control</h2>
+      <p class="auth-sub">Complete control over medicines, batches, expiry, sales and staff accountability — built for Nigerian community pharmacies.</p>
+      <ul class="auth-features">
+        <li><span class="dot"></span> FEFO batch dispensing with expiry protection</li>
+        <li><span class="dot"></span> QR Code goods receiving &amp; batch traceability</li>
+        <li><span class="dot"></span> Fast point of sale with thermal receipts</li>
+        <li><span class="dot"></span> Staff accountability &amp; full activity audit trail</li>
+        <li><span class="dot"></span> Profit, expense and inventory reporting</li>
+      </ul>
+      <p class="auth-foot">Demo build &middot; browser-only data storage</p>
+    </div>
+  </section>
+
+  <section class="auth-panel">
+    <div class="auth-form-wrap">
+      <header class="auth-form-head">
+        <h2>Sign in</h2>
+        <p>Enter your MediFlow credentials to continue.</p>
+      </header>
+
+      <form id="login-form" class="stack-lg" novalidate autocomplete="on">
+        <div class="field">
+          <label class="label" for="login-username">Username</label>
+          <input class="input" id="login-username" name="username" type="text" autocomplete="username" placeholder="admin" spellcheck="false" autocapitalize="none" required>
+          <p class="field-error" id="login-username-error" hidden></p>
+        </div>
+
+        <div class="field">
+          <label class="label" for="login-password">Password</label>
+          <div class="input-group">
+            <input class="input" id="login-password" name="password" type="password" autocomplete="current-password" placeholder="••••••••" required>
+            <button class="input-addon" type="button" id="login-toggle" aria-label="Show password" title="Show password">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M2 12s3.5-6.5 10-6.5S22 12 22 12s-3.5 6.5-10 6.5S2 12 2 12Z" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>
+            </button>
+          </div>
+          <p class="field-error" id="login-password-error" hidden></p>
+        </div>
+
+        <div class="auth-alert" id="login-alert" hidden role="alert"></div>
+
+        <button class="btn btn-primary btn-lg btn-block" id="login-submit" type="submit">
+          <span class="btn-label">Sign in</span>
+        </button>
+      </form>
+
+      <div class="auth-demo">
+        <p class="auth-demo-title">Demo credentials</p>
+        <div class="auth-demo-grid">
+          <button class="demo-card" type="button" data-demo-user="admin" data-demo-pass="admin123">
+            <span class="demo-role">Pharmacy Owner</span>
+            <span class="demo-cred">admin / admin123</span>
+            <span class="demo-hint">Full access</span>
+          </button>
+          <button class="demo-card" type="button" data-demo-user="staff" data-demo-pass="staff123">
+            <span class="demo-role">Pharmacy Staff</span>
+            <span class="demo-cred">staff / staff123</span>
+            <span class="demo-hint">POS &amp; sales only</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================= SESSION LOCK ============================= -->
+<div id="lock-view" class="lock-view" hidden>
+  <div class="lock-card">
+    <div class="lock-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="22" height="22"><rect x="4" y="10.5" width="16" height="10" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+    </div>
+    <h2>Session locked</h2>
+    <p id="lock-user" class="muted">Locked after 30 minutes of inactivity.</p>
+    <form id="lock-form" class="stack">
+      <div class="field">
+        <label class="label" for="lock-password">Password</label>
+        <input class="input" id="lock-password" type="password" autocomplete="current-password" placeholder="Re-enter your password" required>
+        <p class="field-error" id="lock-error" hidden></p>
+      </div>
+      <button class="btn btn-primary btn-block" type="submit">Unlock</button>
+      <button class="btn btn-ghost btn-block" type="button" id="lock-logout">Sign out instead</button>
+    </form>
+  </div>
+</div>
+
+<!-- ============================= APPLICATION SHELL ============================= -->
+<div id="app-view" class="app-shell" hidden>
+  <div id="sidebar-scrim" class="sidebar-scrim" hidden></div>
+  <aside id="sidebar" class="sidebar" aria-label="Main navigation"></aside>
+  <div class="app-body">
+    <header id="topbar" class="topbar"></header>
+    <main id="page-root" class="page-root" tabindex="-1"></main>
+  </div>
+</div>
+
+<!-- Overlay roots -->
+<div id="modal-root" class="overlay-root"></div>
+<div id="drawer-root" class="overlay-root"></div>
+<div id="toast-root" class="toast-root" aria-live="polite" aria-atomic="false"></div>
+<div id="print-root" class="print-root" aria-hidden="true"></div>
+
+<noscript>
+  <div class="noscript">MediFlow Pharmacy ERP requires JavaScript to run.</div>
+</noscript>
+
+<script type="module" src="assets/js/app.js"></script>
+</body>
+</html>
